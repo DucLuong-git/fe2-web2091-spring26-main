@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom"
 import { Button } from "antd";
-import { Layout } from "antd";
+import { Layout, Modal } from "antd";
 import { Form, Input, Table } from 'antd'
+
 function Lab1() {
     const { Header, Content, Footer, Sider } = Layout;
     const onFinish=(values:any)=>{
@@ -19,6 +20,7 @@ const data = [
   { key: 1, name: "luong", email: "vuan@gmail.com", role:"hahaha" },
   { key: 2, name: "nam", email: "anhag@gmail.com", role: "okok" }, 
 ];
+const [open,setOpen]=useState(false)
   return (
     <div>
         <Layout style={{ minHeight: "100vh" }}>
@@ -54,29 +56,53 @@ const data = [
                 >
                     <Input placeholder='name'/>
                 </Form.Item>
-            </Form>
-            <Form onFinish={onFinish}>
                 <Form.Item
                 name="email"
                 rules={[{ required: true, message: "Nhập email" }]}
                 >
                     <Input placeholder='email'/>
                 </Form.Item>
-            </Form>
-            <Form onFinish={onFinish}>
                 <Form.Item
                 name="password"
                 rules={[{ required: true, message: "Nhập password" }]}
                 >
                     <Input placeholder='password'/>
                 </Form.Item>
+                <Button htmlType="submit" type='primary'>click me</Button>
             </Form>
-            <Button htmlType="submit" type='primary'>click me</Button>
+
+            
           </div>
           <h2>danh sách</h2>
           <Table columns={columns} dataSource={data}>
             
           </Table>
+          <Button onClick={() => setOpen(true)}>Open</Button>
+
+            <Modal
+                open={open}
+                onCancel={() => setOpen(false)}
+                onOk={() => setOpen(false)}
+            >
+                <h1>thêm user</h1>
+                <Form onFinish={onFinish}>
+                <Form.Item
+                name="name"
+                rules={[{ required: true, message: "Nhập name" }]}
+                >
+                    <Input placeholder='name'/>
+                </Form.Item>
+                <Form.Item
+                name="email"
+                rules={[{ required: true, message: "Nhập email" }]}
+                >
+                    <Input placeholder='email'/>
+                </Form.Item>
+                <Button htmlType="submit" type='primary'>thêm</Button>
+            </Form>
+            
+            
+            </Modal>
         </Content>
       </Layout>
         
