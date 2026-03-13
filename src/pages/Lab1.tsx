@@ -4,12 +4,11 @@ import { Link } from "react-router-dom"
 import { Button } from "antd";
 import { Layout, Modal } from "antd";
 import { Form, Input, Table } from 'antd'
+import axios from 'axios'
 
 function Lab1() {
     const { Header, Content, Footer, Sider } = Layout;
-    const onFinish=(values:any)=>{
-        console.log(values)
-    }
+    
     const columns = [
   { title: "Name", dataIndex: "name" },
   { title: "email", dataIndex: "email" },
@@ -21,6 +20,10 @@ const data = [
   { key: 2, name: "nam", email: "anhag@gmail.com", role: "okok" }, 
 ];
 const [open,setOpen]=useState(false)
+  function onFinish(values: any): void {
+    console.log('Form submitted:', values);
+  }
+
   return (
     <div>
         <Layout style={{ minHeight: "100vh" }}>

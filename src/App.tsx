@@ -49,7 +49,7 @@ function App() {
         <Button type="text">click me</Button>
 
       </div>
-      <div className=" flex flex-col justify-center">
+      <div>
       <Layout>
       <Header style={{ color: "white" }}>Header</Header>
       <Content style={{ padding: 20 }}>
