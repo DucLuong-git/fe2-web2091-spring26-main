@@ -5,12 +5,13 @@ import "./index.css";
 import App from "./App";
 import Lab1 from "./pages/Lab1";
 import Lab2 from "./pages/Lab2";
+import Lab3 from "./pages/Lab3";
 import "antd/dist/reset.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <Lab2 />
+      <Lab3 />
     </BrowserRouter>
   </StrictMode>
 );
