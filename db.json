@@ -1,4 +1,48 @@
 {
-  "products": [],
+  "stories": [
+    {
+      "title": "aaaaa",
+      "description": "ewewekkkka",
+      "author": "nguyen van c",
+      "Active": true,
+      "id": 1
+    },
+    {
+      "title": "hahahs",
+      "description": "Giảm 10% cho tất cả sản phẩm",
+      "author": "nguyen van c",
+      "categoryId": 2,
+      "Active": true,
+      "id": 2
+    },
+    {
+      "title": "hhahahha",
+      "categoryId": 1,
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "title": "hhhh",
+      "description": "ewewe",
+      "author": "nguyen van c",
+      "Active": true,
+      "id": 1
+    },
+    {
+      "title": "hhhh",
+      "description": "ewewe",
+      "author": "nguyen van c",
+      "Active": true,
+      "id": 2
+    },
+    {
+      "title": "aaaaa",
+      "description": "ewewekkkka",
+      "author": "nguyen van c",
+      "Active": true,
+      "id": 3
+    }
+  ],
   "users": []
 }
