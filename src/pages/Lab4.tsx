@@ -28,9 +28,9 @@ export default function StoryForm(){
         }
     })
     const { data: categories, isLoading } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ["stories"],
     queryFn: async () => {
-        const res = await axios.get("http://localhost:3000/categories");
+        const res = await axios.get("http://localhost:3000/stories");
         return res.data;
     }
     })
@@ -50,7 +50,7 @@ export default function StoryForm(){
             <Link to="#" className="hover:text-gray-200">
               Trang chủ
             </Link>
-            <Link to="/list" className="hover:text-gray-200">
+            <Link to="/StoryList" className="hover:text-gray-200">
               Danh sách
             </Link>
             <Link to="/add" className="hover:text-gray-200">
@@ -76,50 +76,60 @@ export default function StoryForm(){
       <div>
       <Layout>
       <Header style={{ color: "white" }}>Header</Header>
-      <Content style={{ padding: 20 }}>
-        <h1>form </h1>
-            <Form layout="vertical" style={{ maxWidth: 400 }} onFinish={onFinish}>
-                            <Form.Item label="title" name='title'
-                                rules={[
-                                    { required: true, message: "vui lòng nhập title" },
-                                ]}>
-                                <Input />
-                            </Form.Item>
-                            <Form.Item label="description" name='description'
-                                rules={[
-                                    { required: true, message: "vui lòng nhập Description " },
-                                ]}>
-                                <Input />
-                            </Form.Item>
-                            <Form.Item label="author" name='author'
-                                rules={[
-                                    { required: true, message: "vui lòng nhập Description " },
-                                ]}>
-                                <Input />
-                            </Form.Item>
-                            <Form.Item 
-                                label="Danh mục" 
-                                name="categoryId"
-                                rules={[{ required: true, message: "Vui lòng chọn danh mục" }]}>
-                                <Select
-                                    loading={isLoading}
-                                    placeholder="Chọn danh mục"
-                                    options={categories?.map((item: Category) => ({
-                                        label: item.title,
-                                        value: item.id
-                                    }))}
-                                />
-                            </Form.Item>
-                            <Form.Item label="Active" name='Active' valuePropName="checked">
-                                <Checkbox/>
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type='primary' htmlType='submit' loading={isPending} >
-                                     {isPending ? "Đang gửi" : "Đăng"}
-                                </Button>
-                            </Form.Item>
-                        </Form>
-      </Content>
+        <Content style={{ padding: 20 }}>
+            <h1 style={{ textAlign: "center" }}>Form</h1>
+
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <Form 
+                    layout="vertical" 
+                    style={{ width: 400 }} 
+                    onFinish={onFinish}
+                >
+                    <Form.Item label="title" name='title'
+                        rules={[{ required: true, message: "vui lòng nhập title" }]}>
+                        <Input />
+                    </Form.Item>
+
+                    <Form.Item label="description" name='description'
+                        rules={[{ required: true, message: "vui lòng nhập Description" }]}>
+                        <Input />
+                    </Form.Item>
+
+                    <Form.Item label="author" name='author'
+                        rules={[{ required: true, message: "vui lòng nhập author" }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="image" name='image'
+                        rules={[{ required: true, message: "vui lòng nhập image" }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item 
+                        label="Danh mục" 
+                        name="categoryId"
+                        rules={[{ required: true, message: "Vui lòng chọn danh mục" }]}
+                    >
+                        <Select
+                            loading={isLoading}
+                            placeholder="Chọn danh mục"
+                            options={categories?.map((item: Category) => ({
+                                label: item.title,
+                                value: item.id
+                            }))}
+                        />
+                    </Form.Item>
+
+                    <Form.Item label="Active" name='Active' valuePropName="checked">
+                        <Checkbox/>
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Button type='primary' htmlType='submit' loading={isPending}>
+                            {isPending ? "Đang gửi" : "Đăng"}
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </Content>
       <Footer>Footer</Footer>
     </Layout>
     </div>

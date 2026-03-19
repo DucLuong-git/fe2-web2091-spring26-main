@@ -1,8 +1,9 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import { Button } from "antd";
 import { Layout } from "antd";
 import { Form, Input } from 'antd'
+import { StoryList } from "./pages/Lab5";
 function App() {
   const { Header, Content, Footer } = Layout;
   const onFinish = (values: any) => {
@@ -42,31 +43,13 @@ function App() {
       {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
-        <Button type="primary">click me</Button>
-        <Button type="default">click me</Button>
-        <Button type="dashed">click me</Button>
-        <Button type="link">click me</Button>
-        <Button type="text">click me</Button>
-
       </div>
       <div>
       <Layout>
       <Header style={{ color: "white" }}>Header</Header>
       <Content style={{ padding: 20 }}>
-        <Form onFinish={onFinish}>
-      <Form.Item
-        name="email"
-        rules={[{ required: true, message: "Nhập email" }]}
-      >
-        <Input placeholder="Email" />
-      </Form.Item>
-
-      <Form.Item>
-        <Button htmlType="submit" type="primary">
-          Login
-        </Button>
-      </Form.Item>
-    </Form>
+        <Outlet/>
+        <StoryList/>
       </Content>
       <Footer>Footer</Footer>
     </Layout>
