@@ -64,6 +64,7 @@ export default function EditStory() {
           layout="vertical"
           style={{ width: 400 }}
           onFinish={onFinish}
+          disabled={isLoading}
         >
           <Form.Item name="title" label="Title" rules={[{ required: true }]}>
             <Input />
