@@ -25,7 +25,6 @@ export default function EditStory() {
       const res = await axios.get(`http://localhost:3000/stories/${id}`);
       return res.data;
     },
-    enabled: !!id,
   });
 
   useEffect(() => {
