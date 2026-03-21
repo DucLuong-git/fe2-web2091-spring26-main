@@ -10,7 +10,11 @@
     },
     {
       "title": "hhahahha",
+      "description": "Giảm 20.000đ phí ship",
+      "author": "Le Bon",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV71RYckN9t6t56m28q51t0-D2Zh0v68n_Rw&s",
       "categoryId": 1,
+      "Active": true,
       "id": 3
     },
     {

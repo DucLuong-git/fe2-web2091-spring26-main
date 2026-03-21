@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import {
   Table, Tag, Image,
   Button, Popconfirm, message,
@@ -6,7 +7,9 @@ import {
 } from "antd";
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import EditStory from "./Lab6";
+import { Route } from "react-router-dom";
+<Route path="/edit/:id" element={<EditStory />} />
 interface Story {
   id: number;
   title: string;
@@ -113,6 +116,10 @@ export function StoryList() {
     {
       title: "Action",
       render: (_: any, record: Story) => (
+        <>
+        <Link to={`/edit/${record.id}`} className="btn-btn-primary">
+        sửa
+        </Link>
         <Popconfirm
           title="Bạn có chắc muốn xóa"
           onConfirm={() => handleDelete(record.id)}
@@ -121,6 +128,7 @@ export function StoryList() {
             Xóa
           </Button>
         </Popconfirm>
+        </>
       )
     }
   ];

@@ -4,6 +4,8 @@ import { Button } from "antd";
 import { Layout } from "antd";
 import { Form, Input } from 'antd'
 import { StoryList } from "./pages/Lab5";
+import EditStory from "./pages/Lab6"
+import { Route,Routes } from "react-router-dom";
 function App() {
   const { Header, Content, Footer } = Layout;
   const onFinish = (values: any) => {
@@ -21,7 +23,7 @@ function App() {
             <Link to="#" className="hover:text-gray-200">
               Trang chủ
             </Link>
-            <Link to="/list" className="hover:text-gray-200">
+            <Link to="/" className="hover:text-gray-200">
               Danh sách
             </Link>
             <Link to="/add" className="hover:text-gray-200">
@@ -48,8 +50,11 @@ function App() {
       <Layout>
       <Header style={{ color: "white" }}>Header</Header>
       <Content style={{ padding: 20 }}>
+        <Routes>
+          <Route path="/" element={<StoryList/>}/>
+          <Route path="/edit/:id" element={<EditStory/>}/>
+        </Routes>
         <Outlet/>
-        <StoryList/>
       </Content>
       <Footer>Footer</Footer>
     </Layout>

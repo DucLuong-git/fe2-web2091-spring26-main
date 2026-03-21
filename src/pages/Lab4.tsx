@@ -15,6 +15,7 @@ interface Stories{
     Active?:Boolean;
     categoryId: number;
 }
+
 export default function StoryForm(){
     const {mutate, isPending}=useMutation({
         mutationFn: async(value:Stories)=>{
