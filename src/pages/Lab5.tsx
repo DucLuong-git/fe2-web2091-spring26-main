@@ -117,7 +117,7 @@ export function StoryList() {
       title: "Action",
       render: (_: any, record: Story) => (
         <>
-        <Link to={`/edit/${record.id}`} className="btn-btn-primary">
+        <Link to={`/edit/${record.id}`}>
         sửa
         </Link>
         <Popconfirm

@@ -10,14 +10,16 @@ import Lab3 from "./pages/Lab3";
 import StoryForm from "./pages/Lab4";
 import "antd/dist/reset.css";
 import { StoryList } from "./pages/Lab5";
+import { UserProvider } from "./pages/context/UserContext";
 
 const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
      <QueryClientProvider client={queryClient}>
+       <UserProvider>
         <App/>
-
+       </UserProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </StrictMode>
