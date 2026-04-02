@@ -1,19 +1,18 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Outlet, Routes, Route } from "react-router-dom";
 import { Button, Layout } from "antd";
-import { useContext } from "react";
-import { userContext } from "./pages/context/UserContext";
 
-import LoginPage from "./pages/context/login";
+
+import { useAuthStore } from "./stores/useAuthStore";
 import { StoryList } from "./pages/Lab5";
 import EditStory from "./pages/Lab6";
+import RegisterPage from "./pages/context/Register";
+import LoginPage from "./pages/context/login";
 
 function App() {
   const { Header, Content, Footer } = Layout;
-  const context = useContext(userContext);
-  const handleLogout = () => {
-    context?.setUser(null);
-  };
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -35,28 +34,21 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            {context?.user ? (
-              <>
-                <img
-                  src={context.user.avatar}
-                  alt="avatar"
-                  className="w-10 h-10 rounded-full"
-                />
-                <span>{context.user.name}</span>
-                <Button size="small" onClick={handleLogout}>
-                  Logout
-                </Button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="hover:text-gray-200">
-                  Đăng nhập
-                </Link>
-                <Link to="/register" className="hover:text-gray-200">
-                  Đăng ký
-                </Link>
-              </>
-            )}
+            {user ? (
+                <>
+                  <span>{user.email}</span>
+                  <span className="text-green-300">Đã đăng nhập</span>
+
+                  <Button size="small" onClick={logout}>
+                    Logout
+                  </Button>
+                </>
+              ) : ( 
+                <>
+                  <Link to="/login">Đăng nhập</Link>
+                  <Link to="/register">Đăng ký</Link>
+                </>
+              )}
           </div>
         </div>
       </nav>
@@ -73,6 +65,7 @@ function App() {
               <Route path="/" element={<StoryList />} />
               <Route path="/edit/:id" element={<EditStory />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
             </Routes>
             <Outlet />
           </Content>

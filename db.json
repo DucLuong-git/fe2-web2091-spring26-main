@@ -75,5 +75,23 @@
       "id": 3
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$3cvf5QEZ67nFSzYpYScBiOcyghM9w/Y.2HoZs/9ZJC6qccHPv62Cq",
+      "id": 1
+    },
+    {
+      "email": "lt1739274@gmail.com",
+      "password": "$2a$10$Eg12iXMWmyw9mZHWlxWg0eB8PMbL4edZZkUe.18kCkEbowHrRJH1K",
+      "username": "admin",
+      "id": 2
+    },
+    {
+      "email": "hahhah@gmail.com",
+      "password": "$2a$10$63qvGT8Zvnwdnu.vebqLTeUJmet6SPeSQxl0Ux8sN8xN08NIEc1sW",
+      "username": "admin999999",
+      "id": 3
+    }
+  ]
 }
